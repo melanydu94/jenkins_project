@@ -1,12 +1,7 @@
 pipeline {
-    agent any
+    agent { dockerfile true }
 
     stages {
-        stage('Clean Docker Images') {
-        catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
-            sh '`docker rmi -f $(docker images -q)`'
-            }
-        }
         stage('Build Garde-ma-cle') {
         script {
             app = docker.build('jenkins-project', '--memory "1024m" --cpu-quota="100000" --memory-swap="1g" .')
