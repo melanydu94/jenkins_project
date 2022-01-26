@@ -2,6 +2,11 @@ pipeline {
     agent any
 
     stages {
+        stage('Pull') {
+            steps {
+                git ([url:'https://github.com/melanydu94/jenkins_project/', branch:'main'])
+            }
+        }
         stage('Build') {
             steps {
                 sh '''
