@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Build docker image') {
-        script {
-            app = docker.build('jenkins-project', '--memory "1024m" --cpu-quota="100000" --memory-swap="1g" .')
-            }
-        }
         stage('Build') {
             steps {
                 sh '''
