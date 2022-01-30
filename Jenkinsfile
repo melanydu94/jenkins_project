@@ -11,9 +11,11 @@ pipeline {
                     reuseNode true
                 }
             }
-            steps {
-                sh 'gradle --version'
+            
+            script {
+            app = docker.build('jenkins-project', '--memory "1024m" --cpu-quota="100000" --memory-swap="1g" .')
             }
+
         }
             
         stage('Build') {
