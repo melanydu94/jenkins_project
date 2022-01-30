@@ -8,6 +8,8 @@ pipeline {
             steps {
                 sh '''
                 export PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin/
+                docker run
+                docker start
                 docker-compose up
                 '''
             }
